@@ -1,18 +1,21 @@
 function main() {
     const canvas = document.getElementById('myCanvas');
-    const ctx = canvas.getContext('2d');
+    var ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    // let slider1 = document.getElementById('myRange').value;
+
 
     class Bar {
-        constructor(x, y, width, height, color, index) {
+        constructor(x, y, width, height, color, index, value) {
             this.x = x;
             this.y = y;
             this.width = width;
             this.height = height;
             this.color = color;
             this.index = index;
+            this.value
 
         }
         update(micInput) {
@@ -23,7 +26,7 @@ function main() {
             context.strokeStyle = this.color;
             //context.fillRect(this.x, this.y, this.width, this.height)
             context.save();
-            context.translate(canvas.width/2, canvas.height/2);
+            context.translate(canvas.width / 2, canvas.height / 2);
             context.rotate(this.index * 0.05)
 
             // Zona do agrião abaixo
@@ -62,5 +65,19 @@ function main() {
         requestAnimationFrame(animate);
     }
     animate();
-}
 
+    
+    // var slider = document.getElementById("myRange")
+
+    // var a = 0; //variavel a ser controlada
+
+    // var demo = document.getElementById("demo")
+    // demo.innerHTML = a;
+
+    // //funçao a ser chamada quando valor do slide muda
+    // setInterval(function() {
+    //     a = slider.value;
+    //     demo.innerHTML = a;
+    // }, 100)
+
+}

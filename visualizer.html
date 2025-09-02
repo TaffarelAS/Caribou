@@ -46,9 +46,19 @@
     </header>
 
     <!-- Corpo -->
-    <div class="visual">
-        <canvas id="myCanvas"></canvas>
-    </div>
+    <section id="visualizer">
+        <div class="visual">
+            <canvas id="myCanvas"></canvas>
+        </div>
+        <div class="bottom_con">
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                <p>Value: <span id="demo"></span></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/visualizer.js"></script>
 </body>
 
 </html>
