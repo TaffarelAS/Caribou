@@ -6,20 +6,25 @@ function main() {
 
     // let slider1 = document.getElementById('myRange').value;
 
-
     class Bar {
-        constructor(x, y, width, height, color, index, value) {
+
+        constructor(x, y, width, height, color, index) {
             this.x = x;
             this.y = y;
             this.width = width;
             this.height = height;
             this.color = color;
             this.index = index;
-            this.value
 
         }
         update(micInput) {
-            this.height = micInput * 500;
+            //Suaviza a barra voltando ao 0
+            const sound = micInput * 1000;
+            if (sound > this.height){
+                this.height = sound;
+            } else {
+                this.height -= this.height * 0.2;
+            }
 
         }
         draw(context) {
@@ -31,8 +36,8 @@ function main() {
 
             // Zona do agrião abaixo
             context.beginPath();
-            context.moveTo(0, 0);
-            context.lineTo(0, this.height);
+            context.moveTo(0, randomNumber);
+            context.lineTo(randomNumber, this.height);
             context.stroke();
 
             context.restore();
@@ -81,3 +86,20 @@ function main() {
     // }, 100)
 
 }
+
+function aleatorio() {
+
+    return randomRotate =  Math.random(-1);
+
+}
+
+function aleatorio2() {
+
+    return randomNumber =  Math.random() * 100
+
+}
+
+let randomRotate = 0;
+let randomNumber = 0;
+setInterval(aleatorio, 0.001); 
+setInterval(aleatorio2, 1); 
