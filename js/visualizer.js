@@ -4,8 +4,6 @@ function main() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // let slider1 = document.getElementById('myRange').value;
-
     class Bar {
 
         constructor(x, y, width, height, color, index) {
@@ -29,11 +27,11 @@ function main() {
         }
         draw(context, volume) {
             context.strokeStyle = this.color;
-            //context.fillRect(this.x, this.y, this.width, this.height)
+            context.fillRect(this.x, this.y, this.width, this.height)
             context.save();
             context.translate(0, 0);
             context.rotate(this.index * 0.03)
-            context.scale(1 + volume * 0.2,1) + volume * randomNumber;
+            context.scale(1 + volume * 0.2,1) + volume * 1;
 
             // Zona do agrião abaixo
             context.beginPath();
@@ -48,10 +46,9 @@ function main() {
     const fftSize = 1024;
     const microphone = new Microphone(fftSize);
     let bars = [];
-    let barWidth = canvas.width / (fftSize/2);
     function createBars() {
         for (let i = 0; i < (fftSize/2); i++) {
-            let color = 'hsl(' + i * 2 + ', 100%, 50%)' // hsl = Hue Saturation Color
+            let color = 'hsl(' + i * randomColor + ', 100%, 50%)' // hsl = Hue Saturation Color
             bars.push(new Bar(0, i *2, 5, 20, color, i));
         }
     }
@@ -80,36 +77,18 @@ function main() {
         requestAnimationFrame(animate);
     }
     animate();
-
-    
-    // var slider = document.getElementById("myRange")
-
-    // var a = 0; //variavel a ser controlada
-
-    // var demo = document.getElementById("demo")
-    // demo.innerHTML = a;
-
-    // //funçao a ser chamada quando valor do slide muda
-    // setInterval(function() {
-    //     a = slider.value;
-    //     demo.innerHTML = a;
-    // }, 100)
-
 }
 
 function aleatorio() {
 
-    return randomRotate =  Math.random(-1);
+    return randomNumber =  Math.random() * 10
 
 }
-
 function aleatorio2() {
 
-    return randomNumber =  Math.random() * 100
+    return randomColor =  Math.random() * 2
 
 }
 
-let randomRotate = 0;
-let randomNumber = 0;
-setInterval(aleatorio, 0.001); 
-setInterval(aleatorio2, 1); 
+setInterval (aleatorio, 100)
+setInterval (aleatorio2, 0.001)
